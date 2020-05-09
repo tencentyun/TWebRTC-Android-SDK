@@ -1,0 +1,7 @@
+*.iml
+*.DS_Store
+twebrtcsdk.idea
+twebrtcsdk/.gradle
+twebrtcsdk/build
+twebrtcsdk/local.properties
+

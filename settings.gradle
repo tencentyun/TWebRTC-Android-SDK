@@ -1,0 +1,2 @@
+include ':twebrtcsdk'
+rootProject.name='twebrtc_android_sdk'
