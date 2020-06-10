@@ -62,7 +62,7 @@ publish {
     userOrg = 'tencentyun'
     groupId = 'com.tencent.xbright'
     artifactId = 'twebrtcsdk'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'twebrtc android sdk'
     website = 'https://github.com/tencentyun/TWebRTC-Android-SDK'
 }
