@@ -102,7 +102,7 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
       }
 
       String name = info.getName();Logging.e(TAG, name);
-      if (isSupportedCodec(info, type) || (name.startsWith("OMX.hisi"))) {
+      if (isSupportedCodec(info, type) || (name.startsWith("OMX.hisi") && isCodecAllowed(info))) {
         return info;
       }
     }

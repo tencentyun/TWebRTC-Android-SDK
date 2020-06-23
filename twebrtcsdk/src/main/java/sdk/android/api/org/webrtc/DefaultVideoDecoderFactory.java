@@ -19,6 +19,7 @@ import java.util.List;
  * Helper class that combines HW and SW decoders.
  */
 public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
+  private static final String TAG = "DefaultVideoDecoderFactory";
   private final VideoDecoderFactory hardwareVideoDecoderFactory;
   private final VideoDecoderFactory softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
   private final @Nullable VideoDecoderFactory platformSoftwareVideoDecoderFactory;
@@ -44,9 +45,11 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     VideoDecoder softwareDecoder = softwareVideoDecoderFactory.createDecoder(codecType);
     final VideoDecoder hardwareDecoder = hardwareVideoDecoderFactory.createDecoder(codecType);
     if (softwareDecoder == null && platformSoftwareVideoDecoderFactory != null) {
+      Logging.d(TAG, "create platformSoftwareVideoDecoderFactory");
       softwareDecoder = platformSoftwareVideoDecoderFactory.createDecoder(codecType);
     }
     if (hardwareDecoder != null && softwareDecoder != null) {
+      Logging.d(TAG, "create VideoDecoderFallback");
       // Both hardware and software supported, wrap it in a software fallback
       return new VideoDecoderFallback(
           /* fallback= */ softwareDecoder, /* primary= */ hardwareDecoder);
